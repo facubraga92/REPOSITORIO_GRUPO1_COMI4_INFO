@@ -7,16 +7,17 @@
 
 <div class="container">
 <main class="form-signin w-100 m-auto">
-    <form>
+    <form method="POST">
+      {% csrf_token %}
       
       <h1 class="h3 mb-3 fw-normal">Ingrese sus datos:</h1>
   
       <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="usuario administrador">
+        <input type="username" class="form-control" id="floatingInput" placeholder="usuario administrador" name="username">
         <label for="floatingInput">Usuario</label>
       </div>
       <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="constraseña suministrada">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="constraseña suministrada" name="password">
         <label for="floatingPassword">Contraseña</label>
       </div>
   
