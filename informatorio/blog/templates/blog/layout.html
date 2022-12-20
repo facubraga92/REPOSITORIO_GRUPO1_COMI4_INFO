@@ -95,10 +95,10 @@
 
   <div class="nav-scroller py-1 mb-2">
     <nav class="nav d-flex justify-content-between">
-      <a class="p-2 link-secondary" href="#">Inicio</a>
-      <a class="p-2 link-secondary" href="#">Quienes somos</a>
-      <a class="p-2 link-secondary" href="#">Contacto</a>
-      <a class="btn btn-sm btn-outline-secondary" href="#">Iniciar Sesión</a>
+      <a class="p-2 link-secondary" href="{% url 'inicio' %}">Inicio</a>
+      <a class="p-2 link-secondary" href="{% url 'quienessomos' %}">Quienes somos</a>
+      <a class="p-2 link-secondary" href="{% url 'contacto' %}">Contacto</a>
+      <a class="btn btn-sm btn-outline-secondary" href="{% url 'login' %}">Iniciar Sesión</a>
       
     </nav>
   </div>
