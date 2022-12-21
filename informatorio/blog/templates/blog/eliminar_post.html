@@ -1,0 +1,34 @@
+{% extends 'blog/layout.html' %}
+
+
+
+
+{% block layout %}
+
+<div class="container">
+	<div class="row">
+
+		<div class="form-group">
+			<br>
+			<h1>Eliminar Posteo</h1>
+			<br>
+            <h3>Eliminar: {{ post.title }}</h3>
+			<br>
+			<form action="" method="POST">
+				{% csrf_token %}
+
+				<strong>Estas seguro?!</strong>
+				<br>
+				<button>Eliminar Post!</button>
+
+			</form>
+
+		</div>
+
+
+	</div>
+
+</div>
+
+
+{% endblock layout %}
