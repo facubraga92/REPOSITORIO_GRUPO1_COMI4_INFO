@@ -1,0 +1,32 @@
+{% extends 'blog/layout.html' %}
+
+
+
+
+{% block layout %}
+
+
+
+
+<main class="">
+<div class="container">
+	<div class="container">
+		{% for redes in object_list %}
+		
+		{% if user.is_authenticated %}
+		<p class="lead">{{redes.nombreRedSocial}}		<a href="{% url 'editar_redes' redes.pk %}"><button type="button" class="btn btn-sm btn-outline-secondary">Editar</button></a></p>
+		{% endif %}
+		{% endfor %}
+
+		
+	
+	<footer class="blog-footer"><br>
+		<p class="mt-5 mb-3 text-muted">&copy; Fundacion Obrando en Tí.</p>
+	</footer>
+</div>
+	
+</div>
+</main>
+
+
+{% endblock layout %}

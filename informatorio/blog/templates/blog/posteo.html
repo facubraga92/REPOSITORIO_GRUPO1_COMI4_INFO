@@ -7,11 +7,11 @@
 
 <main>
 
-    <section class="py-5 text-center container">
-      <div class="row py-lg-5">
+    <section class="py-12 text-center container">
+      <div class="container">
         <div class="col-lg-auto">
-          <h1 class="fw-light">{{post.title}}</h1>
-          <p class="text-justify">{{post.content}}</p>
+          <h1 class="fw-light" style="text-align: center;">{{post.title}}</h1>
+          <p class="text-center">{{post.content}}</p>
          
         </div>
       </div>
@@ -44,12 +44,12 @@
               {% if post.image.url is not None %}
                 
               
-                
+              <div class="col-md-offset-1">
               <img src="{{ post.image.url }}" width="100%" height="100%" alt="">
-  
+            </div>  
               <div class="card-body" style="width: 100%;">
                 <p class="card-text">{{post.epigrafe}}</p>
-                <div class="d-flex justify-content-between align-items-center">
+                <div class="container">
                   <div class="btn-group">
                     
                     

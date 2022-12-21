@@ -1,0 +1,33 @@
+{% extends 'blog/layout.html' %}
+
+
+
+
+{% block layout %}
+
+<div class="container">
+	<div class="row">
+
+		<div class="form-group">
+			<br>
+			<h1>Eliminar Personal</h1>
+			<br>
+            <br>
+			<form action="" method="POST">
+				{% csrf_token %}
+
+				<strong>Estas seguro?!</strong>
+				<br>
+				<button>Eliminar Personal!</button>
+
+			</form>
+
+		</div>
+
+
+	</div>
+
+</div>
+
+
+{% endblock layout %}

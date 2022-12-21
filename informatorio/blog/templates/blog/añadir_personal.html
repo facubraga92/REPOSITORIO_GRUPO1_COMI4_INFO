@@ -1,0 +1,31 @@
+{% extends 'blog/layout.html' %}
+
+
+
+
+{% block layout %}
+<br>
+<div class="container">
+	<div class="row">
+	    <br>
+	    <div class="form-group">
+	        
+    		<h1>Añadir Personal</h1>
+    		
+    		<form action="" method="POST" enctype="multipart/form-data">
+				{% csrf_token %}
+    		    
+				{{form.as_p}}
+				<button>Añadir Personal Nuevo</button>
+				
+    		       		   </form> 
+    		    
+    		    </div>
+    		    
+    		
+		</div>
+		
+	</div>
+
+    
+{% endblock layout %}

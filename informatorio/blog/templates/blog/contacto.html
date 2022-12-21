@@ -6,21 +6,25 @@
 {% block layout %}
 
 
+
+{% for contacto in object_list %}
 <div class="container">
-<main class="px-3">
-    <h1>Contacto:</h1>
-    <p class="lead">Aca vamos a poner celulares, nombres, etc.</p>
+  <main class="px-3">
+    <h1>{{contacto}}</h1>
+    <p class="lead">{{contacto.descripcion}}</p>
     <p class="lead">
       <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Learn more</a>
     </p>
+    {% if user.is_authenticated %}
+    <a href="{% url 'editar_contacto' contacto.pk %}"><button type="button" class="btn btn-sm btn-outline-secondary">Editar información de
+        Contacto</button></a>
+    {% endif %}
+    {% endfor %}
   </main>
   <footer class="blog-footer"><br>
     <p class="mt-5 mb-3 text-muted">&copy; Fundacion Obrando en Tí.</p>
-    <p>
-      <a href="#">Inicio</a>
-    </p>
   </footer>
 </div>
-    
+
+
 {% endblock layout %}
-    

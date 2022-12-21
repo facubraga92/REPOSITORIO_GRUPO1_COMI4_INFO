@@ -7,37 +7,85 @@
 
 <br><br><br>
 
+<main>
+
+
   <div class="container marketing">
 
     <!-- Three columns of text below the carousel -->
     <div class="row">
-      <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
 
-        <h2 class="fw-normal">Romero Norma</h2>
-        <p>Presidente</p>
-        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+      {% for persona in object_list %}
+      
+      
+      <!-- {% if persona.image.url is not null %}
+      <img src="{{persona.image.url}}" class="bd-placeholder-img rounded-circle" width="140" height="140" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false" alt="">
+      {% endif %} -->
+        
 
-        <h2 class="fw-normal">Salina Maira</h2>
-        <p>Secretaria</p>
-        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
+     
       <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+        
+        {% if persona.image.url is not None %}
+        <img src="{{persona.image.url}}" class="bd-placeholder-img rounded-circle" width="140" height="140" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false" alt="">
+        {% else %}
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
+        role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <title>Placeholder</title>
+        <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+        </svg>
+        {% endif %}
 
-        <h2 class="fw-normal">Godoy Esteban </h2>
-        <p>Tesorero</p>
-        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+        
+
+
+        <h3 class="fw-normal">{{persona.NombreCompleto}}</h3>
+        <p>{{persona.Descripcion}}</p>
+
+        {% if user.is_authenticated %}
+        <p><a class="btn btn-secondary" href="{% url 'editar_personal' persona.pk %}">Editar Persona &raquo;</a></p>
+        <p><a class="btn btn-secondary" href="{% url 'eliminar_personal' persona.pk %}">Eliminar Persona &raquo;</a></p>
+        {% endif %}
+         
+        
+
+        
       </div><!-- /.col-lg-4 -->
-    </div><!-- /.row -->
-    <footer class="blog-footer"><br>
+      {% endfor %}
+
+      {% if user.is_authenticated  %}      
+          
+      <div class="col-lg-4">
+      <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+      <h2 class="fw-normal">Personal Nuevo</h2>
+      <p>Descripción.</p>
+      <p><a class="btn btn-secondary" href="{% url 'añadir_personal' %}">Añadir Personal &raquo;</a></p>
+    </div>
+        
+    {% endif %}
+      
+      
+    </div>
+
+
+
+
+
+
+
+
+
+    <div>
+      <footer class="blog-footer"><br>
         <p class="mt-5 mb-3 text-muted">&copy; Fundacion Obrando en Tí.</p>
-        <p>
-          <a href="#">Inicio</a>
-        </p>
-      </footer>
 
-    {% endblock layout %}
+      </footer>
+    </div>
+
+
+</main>
+
+
+{% endblock layout %}
+
