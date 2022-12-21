@@ -5,7 +5,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
-from .views import HomeView , ArticleDetailView , añadir_post , editar_post , eliminar_post
+from .views import HomeView , ArticleDetailView , añadir_post, añadir_noticia , editar_post , eliminar_post
 
 
 
@@ -21,7 +21,11 @@ urlpatterns = [
     path("quienessomos/",views.quienessomos,name="quienessomos"),
     path("logout/", auth_views.logout_then_login , name="logout"),
     # path('añadir_post/',views.añadir_post,name="añadir_post"),
+
+
     path('añadir_post/',añadir_post.as_view(),name='añadir_post'),
+    path('añadir_noticia/',añadir_noticia.as_view(),name='añadir_noticia'),
+
 
     path('posteo/<int:pk>/delete', eliminar_post.as_view(),name='eliminar_post'),
 
