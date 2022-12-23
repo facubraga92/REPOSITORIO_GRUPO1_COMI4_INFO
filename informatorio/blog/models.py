@@ -68,9 +68,9 @@ class Personal(models.Model):
 
 
 class Titulos(models.Model):
-    titulo = models.CharField(max_length= 255)
-    subtitulo = models.CharField(max_length= 255)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name= 'titulos')
+    titulo = models.CharField(max_length= 255 , default='Titulo')
+    subtitulo = models.CharField(max_length= 255 , default= 'Subtitulo')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name= 'titulos' , default='admin')
     
        #importar os en settings.py e instalar en cmd "pip install pillow" y hacer migrations.
     

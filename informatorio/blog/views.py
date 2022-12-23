@@ -11,6 +11,11 @@ from .forms import PostForm , NewsForm , PersonalForm , TitulosForm , MisionForm
 	
 # 	return render(request, 'blog/index.html');
 
+
+
+######################### POSTEOS ##############################
+
+
 class HomeView(ListView):
 	model = Post
 	template_name='blog/index.html'
